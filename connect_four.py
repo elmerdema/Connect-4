@@ -2,6 +2,8 @@
 Connect 4 
 Solution to: Programming 2, task 1
 Author:Elmer Dema
+Kudos to: https://www.youtube.com/watch?v=Z5xNDIYb7eI&t=1294s&ab_channel=ShefsofProblemSolving
+
 '''
 
 rows = 6
@@ -14,7 +16,7 @@ player_turn = 1
 
 print("WELCOME TO CONNECT FOUR")
 print("If you want to restart type k")
-
+print("If you want to quit type q")
 #checks whether the row is empty(x=0), if it is, it places the sign in the row
 def move(board,move,sign):
     for i in range(rows):
@@ -173,6 +175,10 @@ while game_on == True:
     user_input = input("Player "+str(player_turn)+" enter a move: ")
     if user_input.isdigit() and int(user_input) > -1 and int(user_input) < 7:    
         move_num = int(user_input)
+        #check if the column is full
+        if board[0][move_num] != 0:
+            print("Column is full")
+            continue    
         if move_num == -1:
             break
         board = move(board, move_num, player_turn)
@@ -188,3 +194,6 @@ while game_on == True:
         board_style(board)
         player_turn = 1
         game_on = True
+    elif user_input.lower() == "q":
+        print("Game has been quit")
+        break   
