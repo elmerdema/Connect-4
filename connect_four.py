@@ -156,6 +156,7 @@ def check_draw(board):
             return False
     return True
 
+
 #If one of the functions returns true, the game ends
 def check_win(board,move):
     #figures out the position of the last move
@@ -167,8 +168,10 @@ def check_win(board,move):
     column_placement=move
     return check_win_column(board,row_placement,column_placement) or check_win_row(board,row_placement,column_placement) or check_win_diagonal(board,row_placement,column_placement) or check_draw(board)
 
+
 def winner(player_turn):
     print("Player "+str(3 - player_turn)+" won the game")
+
 
 while game_on == True:
     #asks the player to enter a move (digit)
@@ -196,4 +199,4 @@ while game_on == True:
         game_on = True
     elif user_input.lower() == "q":
         print("Game has been quit")
-        break   
+        break
